@@ -12,17 +12,7 @@ class A_Thread : public Visitor
 {
 public:
 	virtual ~A_Thread(){}
-	void loop()
-	{
-		while (!msglist_.empty())
-		{
-			// 每条消息处理完即时释放
-			Message* it = msglist_.front().get();
-			it->Accept(this);
-			msglist_.pop_front();
-		}
-		
-	}
+
 	void Visit(Log_Message* msg) override
 	{
 		std::cout << "A_Thread handling Log_Message: " << msg->getLog() << std::endl;

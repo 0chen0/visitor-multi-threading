@@ -9,8 +9,8 @@ int main()
 	A_Thread a_loop;
 	B_Thread b_loop;
 
-	std::unique_ptr<Message> a_log1 (new Log_Message(std::string("BB Hello")));
-	std::unique_ptr<Message> a_log2 (new Log_Message(std::string("World BB")));
+	std::unique_ptr<Message> a_log1 (new Log_Message(std::string("AA_ Hello")));
+	std::unique_ptr<Message> a_log2 (new Log_Message(std::string("World _AA")));
 	std::unique_ptr<Message> a_flag1 (new Flag_Message(11));
 	std::unique_ptr<Message> a_flag2 (new Flag_Message(22));
 	std::unique_ptr<Message> a_isopen1 (new Open_Message(true));
@@ -24,8 +24,8 @@ int main()
 	a_loop.submit(a_isopen2);
 	a_loop.loop();
 
-	std::unique_ptr<Message> b_log1 (new Log_Message(std::string("AA Hello")));
-	std::unique_ptr<Message> b_log2 (new Log_Message(std::string("World AA")));
+	std::unique_ptr<Message> b_log1 (new Log_Message(std::string("BB_ Hello")));
+	std::unique_ptr<Message> b_log2 (new Log_Message(std::string("World _BB")));
 	std::unique_ptr<Message> b_flag1 (new Flag_Message(11));
 	std::unique_ptr<Message> b_flag2 (new Flag_Message(22));
 	std::unique_ptr<Message> b_isopen1 (new Open_Message(true));
