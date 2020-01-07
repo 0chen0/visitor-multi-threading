@@ -6,6 +6,8 @@
 using namespace rccv;
 int main()
 {
+	std::cout << "======================================================" << std::endl;
+
 	A_Thread a_loop;
 	B_Thread b_loop;
 
@@ -23,6 +25,8 @@ int main()
 	a_loop.submit(a_isopen1);
 	a_loop.submit(a_isopen2);
 	a_loop.loop();
+
+	std::cout << "-------------------------------------------------" << std::endl;
 
 	std::unique_ptr<Message> b_log1 (new Log_Message(std::string("BB_ Hello")));
 	std::unique_ptr<Message> b_log2 (new Log_Message(std::string("World _BB")));
