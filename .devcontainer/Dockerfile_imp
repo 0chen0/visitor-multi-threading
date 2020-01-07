@@ -1,0 +1,6 @@
+FROM rccv-image:latest
+
+RUN printf "\n\
+    export imp=Dockerfile_imp\n\
+    " >> /root/.bashrc
+CMD [ "/bin/bash" ]

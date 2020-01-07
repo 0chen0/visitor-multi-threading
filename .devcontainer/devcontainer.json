@@ -1,0 +1,14 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+{
+	"name": "Docker-visitor-multi-threading",
+
+	"context": ".",
+
+	"dockerFile": "Dockerfile_imp",
+
+	"extensions": [
+                "ms-vscode.cpptools"
+                , "ms-vscode.cmake-tools"
+	]
+}
