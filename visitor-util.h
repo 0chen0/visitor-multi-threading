@@ -6,6 +6,7 @@ namespace rccv
 {
 
 class Visitor;
+
 class Message
 {
 public:
@@ -13,38 +14,35 @@ public:
 	virtual void Accept(Visitor* v)=0;
 };
 
-class Visitor;
 class Log_Message : public Message
 {
 std::string log_;
 public:
 	Log_Message(std::string log):log_(log){}
 	virtual ~Log_Message(){}
-	virtual void Accept(Visitor* v);
+	virtual void Accept(Visitor* v) override;
 
 	std::string getLog();
 	void printSelf();
 };
 
-class Visitor;
 class Flag_Message : public Message
 {
 int flag_;
 public:
 	Flag_Message(int flag):flag_(flag){}
 	virtual ~Flag_Message(){}
-	virtual void Accept(Visitor* v);
+	virtual void Accept(Visitor* v) override;
 	int get_10_times_flag();
 };
 
-class Visitor;
 class Open_Message : public Message
 {
 bool isOpen_;
 public:
 	Open_Message(bool isOpen):isOpen_(isOpen){}
 	virtual ~Open_Message(){}
-	virtual void Accept(Visitor* v);
+	virtual void Accept(Visitor* v) override;
 	bool isItOpen();
 };
 

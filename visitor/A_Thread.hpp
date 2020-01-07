@@ -23,13 +23,13 @@ public:
 			(*it)->Accept(this);
 		}
 	}
-	virtual void Visit(Log_Message* msg)
+	void Visit(Log_Message* msg) override
 	{
 		std::cout << "A_Thread handling Log_Message: " << msg->getLog() << std::endl;
 		// msg->printSelf();
 	}
 
-	virtual void Visit(Flag_Message* msg)
+	void Visit(Flag_Message* msg) override
 	{
 		std::cout << "A_Thread handling Flag_Message: " << msg->get_10_times_flag() << std::endl;
 	}

@@ -23,7 +23,7 @@ public:
 			(*it)->Accept(this);
 		}
 	}
-	virtual void Visit(Open_Message* msg)
+	void Visit(Open_Message* msg) override
 	{
 		if (msg->isItOpen())
 			std::cout << "B_Thread handling Open_Message: " << "Open" << std::endl;
@@ -31,7 +31,7 @@ public:
 			std::cout << "B_Thread handling Open_Message: " << "Not Open" << std::endl;
 	}
 
-	virtual void Visit(Flag_Message* msg)
+	void Visit(Flag_Message* msg) override
 	{
 		std::cout << "B_Thread handling Flag_Message: " << msg->get_10_times_flag() << std::endl;
 	}
