@@ -10,17 +10,13 @@ namespace rccv
 
 class A_Thread : public Visitor
 {
-std::list<std::unique_ptr<Message>> msglist_;
 public:
 	virtual ~A_Thread(){}
-	void submit(std::unique_ptr<Message> &msg_ptr)
-	{
-		msglist_.push_back(std::move(msg_ptr));
-	}
 	void loop()
 	{
 		while (!msglist_.empty())
 		{
+			// 每条消息处理完即时释放
 			Message* it = msglist_.front().get();
 			it->Accept(this);
 			msglist_.pop_front();

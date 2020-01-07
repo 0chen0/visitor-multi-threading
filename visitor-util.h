@@ -2,6 +2,8 @@
 #define RCCV_visitor_util_H
 #include <string>
 #include <iostream>
+#include <list>
+#include <memory>
 
 namespace rccv
 {
@@ -52,7 +54,13 @@ public:
 
 class Visitor
 {
+protected:
+	std::list<std::unique_ptr<Message>> msglist_;
 public:
+	void submit(std::unique_ptr<Message> &msg_ptr)
+	{
+		msglist_.push_back(std::move(msg_ptr));
+	}
 	virtual ~Visitor(){}
 	virtual void Visit(Log_Message* msg){}
 	virtual void Visit(Flag_Message* msg){}

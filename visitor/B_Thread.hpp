@@ -9,18 +9,20 @@ namespace rccv
 
 class B_Thread : public Visitor
 {
-std::list<Message*> msglist_;
 public:
 	virtual ~B_Thread(){}
-	void submit(Message* msg)
-	{
-		msglist_.push_back(msg);
-	}
+
 	void loop()
 	{
-		for(auto it=msglist_.begin(); it!=msglist_.end(); ++it)
+		// for(auto it=msglist_.begin(); it!=msglist_.end(); ++it)
+		// {
+		// 	(*it)->Accept(this);
+		// }
+		while (!msglist_.empty())
 		{
-			(*it)->Accept(this);
+			Message* it = msglist_.front().get();
+			it->Accept(this);
+			msglist_.pop_front();
 		}
 	}
 	void Visit(Open_Message* msg) override

@@ -9,28 +9,35 @@ int main()
 	A_Thread a_loop;
 	B_Thread b_loop;
 
-	std::unique_ptr<Message> log1 (new Log_Message(std::string("Hello")));
-	std::unique_ptr<Message> log2 (new Log_Message(std::string("World")));
-	std::unique_ptr<Message> flag1 (new Flag_Message(11));
-	std::unique_ptr<Message> flag2 (new Flag_Message(22));
-	std::unique_ptr<Message> isopen1 (new Open_Message(true));
-	std::unique_ptr<Message> isopen2 (new Open_Message(false));
+	std::unique_ptr<Message> a_log1 (new Log_Message(std::string("BB Hello")));
+	std::unique_ptr<Message> a_log2 (new Log_Message(std::string("World BB")));
+	std::unique_ptr<Message> a_flag1 (new Flag_Message(11));
+	std::unique_ptr<Message> a_flag2 (new Flag_Message(22));
+	std::unique_ptr<Message> a_isopen1 (new Open_Message(true));
+	std::unique_ptr<Message> a_isopen2 (new Open_Message(false));
 
-	a_loop.submit(log1);
-	a_loop.submit(flag1);
-	a_loop.submit(log2);
-	a_loop.submit(flag2);
-	a_loop.submit(isopen1);
-	a_loop.submit(isopen2);
+	a_loop.submit(a_log1);
+	a_loop.submit(a_flag1);
+	a_loop.submit(a_log2);
+	a_loop.submit(a_flag2);
+	a_loop.submit(a_isopen1);
+	a_loop.submit(a_isopen2);
 	a_loop.loop();
 
-	// b_loop.submit(log1);
-	// b_loop.submit(flag1);
-	// b_loop.submit(log2);
-	// b_loop.submit(flag2);
-	// b_loop.submit(isopen1);
-	// b_loop.submit(isopen2);
-	// b_loop.loop();
+	std::unique_ptr<Message> b_log1 (new Log_Message(std::string("AA Hello")));
+	std::unique_ptr<Message> b_log2 (new Log_Message(std::string("World AA")));
+	std::unique_ptr<Message> b_flag1 (new Flag_Message(11));
+	std::unique_ptr<Message> b_flag2 (new Flag_Message(22));
+	std::unique_ptr<Message> b_isopen1 (new Open_Message(true));
+	std::unique_ptr<Message> b_isopen2 (new Open_Message(false));
+
+	b_loop.submit(b_log1);
+	b_loop.submit(b_flag1);
+	b_loop.submit(b_log2);
+	b_loop.submit(b_flag2);
+	b_loop.submit(b_isopen1);
+	b_loop.submit(b_isopen2);
+	b_loop.loop();
 
 	return 0;
 }
