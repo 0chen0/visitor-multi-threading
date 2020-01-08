@@ -1,5 +1,5 @@
-#ifndef RCCV_VISITOR_A_THREAD_HPP
-#define RCCV_VISITOR_A_THREAD_HPP
+#ifndef RCCV_visitor_A_Thread_HPP
+#define RCCV_visitor_A_Thread_HPP
 
 #include "visitor/Visitor.h"
 #include "message/Log_Message.hpp"
@@ -29,4 +29,4 @@ public:
 };
 
 } // namespace rccv
-#endif //RCCV_VISITOR_A_THREAD_HPP
+#endif //RCCV_visitor_A_Thread_HPP

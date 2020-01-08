@@ -1,19 +1,3 @@
-/*
-#include "visitor-util.h"
-
-using namespace rccv;
-
-void Open_Message::Accept(Visitor* v)
-{
-	v->Visit(this);
-}
-
-bool Open_Message::isItOpen()
-{
-	return isOpen_;
-}
-//*/
-
 #ifndef RCCV_message_Open_Message_HPP
 #define RCCV_message_Open_Message_HPP
 

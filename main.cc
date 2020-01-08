@@ -1,13 +1,9 @@
-// #include "visitor-util.h"
-// #include "visitor/Visitor.h"
-// #include "message/Message.hpp"
+#include "visitor/A_Thread.hpp"
+#include "visitor/B_Thread.hpp"
+
 #include "message/Log_Message.hpp"
 #include "message/Flag_Message.hpp"
 #include "message/Open_Message.hpp"
-#include "visitor/A_Thread.hpp"
-#include "visitor/B_Thread.hpp"
-// #include "visitor/B_Thread.hpp"
-
 
 using namespace rccv;
 int main()
