@@ -14,6 +14,11 @@ public:
 	WriteLog_EventLoop(){}
 	~WriteLog_EventLoop(){}
 
+	void run()
+	{
+		loop();
+	}
+
 	void Visit(Log_Message* msg)
 	{
 		std::cout << "Log_EventLoop ==> handling Log_Message: " << msg->getLog() << std::endl;

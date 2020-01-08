@@ -16,6 +16,11 @@ public:
 	ImageHandle_EventLoop(){}
 	virtual ~ImageHandle_EventLoop(){}
 
+	void run()
+	{
+		loop();
+	}
+
 	void Visit(Log_Message* msg)
 	{
 		std::cout << "ImageHandle_EventLoop ==> handling Log_Message: " << msg->getLog() << std::endl;

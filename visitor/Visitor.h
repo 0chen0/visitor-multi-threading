@@ -19,6 +19,7 @@ protected:
 	std::list<std::unique_ptr<Message>> msglist_;
 public:
 	virtual ~Visitor(){}
+	virtual void run()=0;
 	void loop();
 	void submit(std::unique_ptr<Message> &msg_ptr);
 

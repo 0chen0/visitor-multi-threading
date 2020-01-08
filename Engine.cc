@@ -1,8 +1,4 @@
 #include "Engine.h"
-#include "message/Log_Message.hpp"
-#include "message/Flag_Message.hpp"
-#include "message/Open_Message.hpp"
-
 #include <thread>
 
 namespace rccv
@@ -59,21 +55,16 @@ void Engine::run()
 	getEventLoop_WriteLog()->submit(b_isopen1);
 	getEventLoop_WriteLog()->submit(b_isopen2);
 
-	// a_loop.loop();
-	std::thread a_thread(&ImageHandle_EventLoop::loop, getEventLoop_ImageHandle());
-	// b_loop.loop();
-	std::thread b_thread(&WriteLog_EventLoop::loop, getEventLoop_WriteLog());
-
+	std::thread a_thread(&ImageHandle_EventLoop::run, getEventLoop_ImageHandle());
+	std::thread b_thread(&WriteLog_EventLoop::run, getEventLoop_WriteLog());
 	std::thread c_thread(&ImageRead_EventLoop::run, getEventLoop_ImageRead());
 
 
 	a_thread.join();
-
-	// std::thread c_thread(appendMessage, std::ref(a_loop), std::ref(b_loop));
-	c_thread.join();
-
 	b_thread.join();
-	//*/
+	c_thread.join();
+	// std::thread c_thread(appendMessage, std::ref(a_loop), std::ref(b_loop));
+
 }
 
 } // namespace rccv
