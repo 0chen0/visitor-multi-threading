@@ -2,7 +2,7 @@ FROM rccv-image:latest
 
 RUN printf "\n\
     export imp=Dockerfile_imp\n\
-    alias rebuild='rm -rf ./build/* && cd ./build && cmake .. && make \
-    && cls && cd .. && ./build/visitor-multi-threading' \n\
+    alias rebuild='rm -r ../build/* && cmake .. && make && cls \ 
+    && ./visitor-multi-threading' \n\
     " >> /root/.bashrc
 CMD [ "/bin/bash" ]

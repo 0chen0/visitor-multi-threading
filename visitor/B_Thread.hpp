@@ -1,8 +1,11 @@
 #ifndef RCCV_VISITOR_B_THREAD_HPP
 #define RCCV_VISITOR_B_THREAD_HPP
-#include <list>
+
+#include "visitor/Visitor.h"
+#include "message/Open_Message.hpp"
+#include "message/Log_Message.hpp"
 #include <iostream>
-#include "visitor-util.h"
+// #include "visitor-util.h"
 
 namespace rccv
 {
