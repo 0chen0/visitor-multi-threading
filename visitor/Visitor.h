@@ -1,5 +1,6 @@
 #ifndef RCCV_visitor_Visitor_H
 #define RCCV_visitor_Visitor_H
+#include "base/Mutex.hpp"
 #include <list>
 #include <memory>
 
@@ -11,9 +12,10 @@ class Log_Message;
 class Flag_Message;
 class Open_Message;
 
-class Visitor
+class Visitor : public noncopyable
 {
 protected:
+	MutexLock mutex_;
 	std::list<std::unique_ptr<Message>> msglist_;
 public:
 	virtual ~Visitor(){}

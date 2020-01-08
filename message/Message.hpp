@@ -13,7 +13,7 @@ class Message
 public:
 	virtual ~Message()
 	{
-		std::cout << "~Message did" << std::endl;
+		std::cout << "~Message did" << std::endl << std::endl;
 	}
 	virtual void Accept(Visitor* v)=0;
 };

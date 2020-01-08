@@ -12,7 +12,7 @@ class Flag_Message : public Message
 int flag_;
 public:
 	Flag_Message(int flag):flag_(flag){}
-	virtual ~Flag_Message(){std::cout << "~Flag_Message did" << std::endl;}
+	virtual ~Flag_Message(){std::cout << "~Flag_Message: " << flag_ << std::endl;}
 	virtual void Accept(Visitor* v) override
 	{
 		v->Visit(this);

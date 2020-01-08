@@ -12,7 +12,7 @@ class Log_Message : public Message
 std::string log_;
 public:
 	Log_Message(std::string log):log_(log){}
-	virtual ~Log_Message(){std::cout << "~Log_Message did" << std::endl;}
+	virtual ~Log_Message(){std::cout << "~Log_Message: " << log_ << std::endl;}
 	virtual void Accept(Visitor* v) override
 	{
 		v->Visit(this);

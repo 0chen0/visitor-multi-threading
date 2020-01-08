@@ -5,20 +5,27 @@ using namespace rccv;
 
 void Visitor::loop()
 {
-	// for(auto it=msglist_.begin(); it!=msglist_.end(); ++it)
-	// {
-	// 	(*it)->Accept(this);
-	// }
-	while (!msglist_.empty())
+	while (true)
 	{
-		// 每条消息处理完即时释放
-		Message* it = msglist_.front().get();
-		it->Accept(this);
-		msglist_.pop_front();
+		std::list<std::unique_ptr<Message>> msglist;
+		{
+			MutexLockGuard lock(mutex_);
+			msglist.splice(msglist.end(), msglist_, msglist_.begin(), msglist_.end());
+		}
+		while (!msglist.empty())
+		{
+			// 每条消息处理完即时释放
+			Message* it = msglist.front().get();
+			it->Accept(this);
+			msglist.pop_front();
+		}
 	}
 }
 
 void Visitor::submit(std::unique_ptr<Message> &msg_ptr)
 {
-	msglist_.push_back(std::move(msg_ptr));
+	{
+		MutexLockGuard lock(mutex_);
+		msglist_.push_back(std::move(msg_ptr));
+	}
 }

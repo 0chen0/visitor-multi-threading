@@ -12,7 +12,7 @@ class Open_Message : public Message
 bool isOpen_;
 public:
 	Open_Message(bool isOpen):isOpen_(isOpen){}
-	virtual ~Open_Message(){std::cout << "~Open_Message did" << std::endl;}
+	virtual ~Open_Message(){std::cout << "~Open_Message: " << isOpen_ << std::endl;}
 	virtual void Accept(Visitor* v) override
 	{
 		v->Visit(this);

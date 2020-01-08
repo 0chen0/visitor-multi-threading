@@ -27,8 +27,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 # 收集源文件
 file(GLOB_RECURSE PROJ_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS 
     main.cc
-    message/*.cc
-    visitor/*
+    Engine.cc
+    base/*
+    message/*.hpp
+    visitor/*.cc
 )
 message(STATUS "@#@#: ${PROJ_SOURCES}")
 
