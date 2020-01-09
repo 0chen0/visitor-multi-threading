@@ -30,7 +30,7 @@ file(GLOB_RECURSE PROJ_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLI
     Engine.cc
     base/*
     message/*.hpp
-    visitor/*.cc
+    loop/*.cc
 )
 message(STATUS "@#@#: ${PROJ_SOURCES}")
 

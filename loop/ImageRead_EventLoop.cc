@@ -1,7 +1,6 @@
-// #include "ImageRead_EventLoop.h"
-// #include "message/Log_Message.hpp"
+#include "loop/ImageRead_EventLoop.h"
+#include "message/Log_Message.hpp"
 #include "Engine.h"
-// #include "define.h"
 #include <iostream>
 #include <unistd.h>	//sleep
 

@@ -3,12 +3,14 @@
 
 namespace rccv
 {
-class Engine;
-extern Engine* global_Engine;
-inline Engine* getEngine()
-{
-	return global_Engine;
-}	
+
+
+// class Engine;
+// extern Engine* global_Engine;
+// inline Engine* getEngine()
+// {
+// 	return global_Engine;
+// }	
 
 } // namespace rccv
 

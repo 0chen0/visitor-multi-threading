@@ -1,7 +1,7 @@
-#ifndef RCCV_visitor_ImageRead_EventLoop_H
-#define RCCV_visitor_ImageRead_EventLoop_H
+#ifndef RCCV_loop_ImageRead_EventLoop_H
+#define RCCV_loop_ImageRead_EventLoop_H
 
-#include "EventLoop.h"
+#include "loop/EventLoop.h"
 
 namespace rccv
 {
@@ -18,4 +18,4 @@ public:
 
 } // namespace rccv
 
-#endif //RCCV_visitor_ImageRead_EventLoop_H
+#endif //RCCV_loop_ImageRead_EventLoop_H

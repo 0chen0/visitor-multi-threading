@@ -1,15 +1,13 @@
 #include "Engine.h"
-// #include "define.h"
+#include "message/Log_Message.hpp"
+#include "message/Flag_Message.hpp"
+#include "message/Open_Message.hpp"
 #include <thread>
 
 namespace rccv
 {
 
 Engine* global_Engine = NULL;
-inline Engine* getEngine()
-{
-	return global_Engine;
-}
 
 Engine::Engine()
 {

@@ -1,9 +1,9 @@
 #ifndef RCCV_Engine_H
 #define RCCV_Engine_H
 
-#include "visitor/ImageHandle_EventLoop.h"
-#include "visitor/WriteLog_EventLoop.h"
-#include "visitor/ImageRead_EventLoop.h"
+#include "loop/ImageHandle_EventLoop.h"
+#include "loop/WriteLog_EventLoop.h"
+#include "loop/ImageRead_EventLoop.h"
 
 namespace rccv
 {
@@ -26,7 +26,11 @@ public:
 	ImageRead_EventLoop* 	getEventLoop_ImageRead()	{ return &loop_imageread_; }
 };
 
-extern Engine* getEngine();
+extern Engine* global_Engine;
+inline Engine* getEngine()
+{
+	return global_Engine;
+}
 
 
 } // namespace rccv
