@@ -15,9 +15,9 @@ SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 message(STATUS "@#@#: ${CMAKE_CXX_FLAGS}")
 message(STATUS "@#@#: ${TEMP_CXX_FLAGS}")
 
+# 引入库
 find_package(Boost REQUIRED)
 include_directories( ${Boost_INCLUDE_DIRS} )
-
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
@@ -25,14 +25,32 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # 收集源文件
-file(GLOB_RECURSE PROJ_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS 
+file(GLOB_RECURSE PROJ_SOURCES_COLLECTED RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS 
     main.cc
     Engine.cc
     base/*
-    message/*.hpp
-    loop/*.cc
+    message/*
+    loop/*
 )
-message(STATUS "@#@#: ${PROJ_SOURCES}")
+message(STATUS "@#@#: ${PROJ_SOURCES_COLLECTED}")
 
+set( PROJ_SOURCES
+    main.cc
+    Engine.cc
+    base/Mutex.hpp
+    base/noncopyable.hpp
+    loop/EventLoop.cc
+
+    loop/ImageHandle_EventLoop.cc
+    loop/ImageRead_EventLoop.cc
+    loop/WriteLog_EventLoop.cc
+
+    message/Flag_Message.hpp
+    message/Log_Message.hpp
+    message/Open_Message.hpp
+
+)
+
+# add_executable(${PROJECT_NAME} ${PROJ_SOURCES_COLLECTED})
 add_executable(${PROJECT_NAME} ${PROJ_SOURCES})
 target_link_libraries( ${PROJECT_NAME} ${OpenCV_LIBS} ${Boost_LIBRARIES})
