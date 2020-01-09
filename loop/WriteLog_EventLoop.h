@@ -12,11 +12,8 @@ public:
 	WriteLog_EventLoop(){}
 	~WriteLog_EventLoop(){}
 
-	void run()
-	{
-		loop();
-	}
-
+	void loop() override;
+	
 	void Visit(Log_Message* msg) override;
 	void Visit(Open_Message* msg) override;
 

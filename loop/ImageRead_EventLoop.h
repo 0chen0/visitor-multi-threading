@@ -12,7 +12,7 @@ public:
 	ImageRead_EventLoop(){}
 	~ImageRead_EventLoop(){}
 
-	void run();
+	void loop() override;
 
 };
 

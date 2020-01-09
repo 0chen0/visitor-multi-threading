@@ -1,8 +1,8 @@
 #ifndef RCCV_message_Open_Message_HPP
 #define RCCV_message_Open_Message_HPP
 
-#include "message/Message.hpp"
-#include "message/Visitor.hpp"
+#include "message/Message.h"
+#include "message/Visitor.h"
 #include <iostream>
 
 namespace rccv

@@ -1,5 +1,5 @@
-#ifndef RCCV_message_Visitor_HPP
-#define RCCV_message_Visitor_HPP
+#ifndef RCCV_message_Visitor_H
+#define RCCV_message_Visitor_H
 
 namespace rccv
 {
@@ -19,4 +19,4 @@ public:
 };
 
 } //namespace rccv
-#endif //RCCV_message_Visitor_HPP
+#endif //RCCV_message_Visitor_H

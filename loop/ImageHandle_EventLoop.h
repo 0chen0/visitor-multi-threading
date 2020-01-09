@@ -14,13 +14,9 @@ public:
 	ImageHandle_EventLoop(){}
 	virtual ~ImageHandle_EventLoop(){}
 
-	void run()
-	{
-		loop();
-	}
+	void loop() override;
 
 	void Visit(Log_Message* msg) override;
-
 	void Visit(Flag_Message* msg) override;
 
 };

@@ -1,5 +1,5 @@
-#ifndef RCCV_message_Message_HPP
-#define RCCV_message_Message_HPP
+#ifndef RCCV_message_Message_H
+#define RCCV_message_Message_H
 
 #include <iostream>
 
@@ -20,4 +20,4 @@ public:
 
 
 } // namespace rccv
-#endif //RCCV_message_Message_HPP
+#endif //RCCV_message_Message_H

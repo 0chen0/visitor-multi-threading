@@ -1,8 +1,8 @@
 #ifndef RCCV_loop_EventLoop_H
 #define RCCV_loop_EventLoop_H
 
-#include "message/Visitor.hpp"
-#include "message/Message.hpp"
+#include "message/Visitor.h"
+#include "message/Message.h"
 #include "base/Mutex.hpp"
 #include <list>
 #include <memory>
@@ -15,10 +15,10 @@ class EventLoop : public noncopyable, public Visitor
 protected:
 	MutexLock mutex_;
 	std::list<std::unique_ptr<Message>> msglist_;
+	void processMsg();
 public:
 	virtual ~EventLoop(){}
-	virtual void run()=0;
-	void loop();
+	virtual void loop()=0;
 	void submit(std::unique_ptr<Message> &msg_ptr);
 
 };

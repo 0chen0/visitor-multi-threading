@@ -6,7 +6,7 @@
 
 using namespace rccv;
 
-void ImageRead_EventLoop::run()
+void ImageRead_EventLoop::loop()
 {
 	while(true)
 	{

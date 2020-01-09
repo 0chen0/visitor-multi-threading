@@ -64,9 +64,9 @@ void Engine::run()
 {
 	engineInit();
 
-	std::thread a_thread(&ImageHandle_EventLoop::run, getEventLoop_ImageHandle());
-	std::thread b_thread(&WriteLog_EventLoop::run, getEventLoop_WriteLog());
-	std::thread c_thread(&ImageRead_EventLoop::run, getEventLoop_ImageRead());
+	std::thread a_thread(&ImageHandle_EventLoop::loop, getEventLoop_ImageHandle());
+	std::thread b_thread(&WriteLog_EventLoop::loop, getEventLoop_WriteLog());
+	std::thread c_thread(&ImageRead_EventLoop::loop, getEventLoop_ImageRead());
 
 	a_thread.join();
 	b_thread.join();

@@ -4,6 +4,14 @@
 
 using namespace rccv;
 
+void ImageHandle_EventLoop::loop()
+{
+	while (true)
+	{
+		processMsg();
+	}
+}
+
 void ImageHandle_EventLoop::Visit(Log_Message* msg)
 {
 	std::cout << "ImageHandle_EventLoop ==> handling Log_Message: " << msg->getLog() << std::endl;
