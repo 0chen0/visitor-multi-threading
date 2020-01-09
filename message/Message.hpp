@@ -1,12 +1,12 @@
 #ifndef RCCV_message_Message_HPP
 #define RCCV_message_Message_HPP
 
-#include "visitor/Visitor.h"
 #include <iostream>
-
 
 namespace rccv
 {
+
+class Visitor;
 
 class Message
 {

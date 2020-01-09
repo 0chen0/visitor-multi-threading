@@ -2,6 +2,7 @@
 #define RCCV_message_Open_Message_HPP
 
 #include "message/Message.hpp"
+#include "message/Visitor.hpp"
 #include <iostream>
 
 namespace rccv

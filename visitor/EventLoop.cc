@@ -1,9 +1,8 @@
-#include "visitor/Visitor.h"
-#include "message/Message.hpp"
+#include "visitor/EventLoop.h"
 
 using namespace rccv;
 
-void Visitor::loop()
+void EventLoop::loop()
 {
 	while (true)
 	{
@@ -22,7 +21,7 @@ void Visitor::loop()
 	}
 }
 
-void Visitor::submit(std::unique_ptr<Message> &msg_ptr)
+void EventLoop::submit(std::unique_ptr<Message> &msg_ptr)
 {
 	{
 		MutexLockGuard lock(mutex_);

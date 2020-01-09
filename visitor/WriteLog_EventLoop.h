@@ -1,14 +1,14 @@
 #ifndef RCCV_visitor_WriteLog_EventLoop_H
 #define RCCV_visitor_WriteLog_EventLoop_H
 
-#include "visitor/Visitor.h"
+#include "EventLoop.h"
 #include "message/Log_Message.hpp"
 #include "message/Open_Message.hpp"
 
 namespace rccv
 {
 
-class WriteLog_EventLoop : public Visitor
+class WriteLog_EventLoop : public EventLoop
 {
 public:
 	WriteLog_EventLoop(){}

@@ -10,14 +10,16 @@ namespace rccv
 
 class Engine
 {
-ImageHandle_EventLoop loop_imagehandle_;
-WriteLog_EventLoop loop_writelog_;
-ImageRead_EventLoop loop_imageread_;
+private:
+	ImageHandle_EventLoop loop_imagehandle_;
+	WriteLog_EventLoop loop_writelog_;
+	ImageRead_EventLoop loop_imageread_;
 
 public:
 	Engine();
 	~Engine(){}
 	void run();
+	void engineInit();
 
 	ImageHandle_EventLoop* 	getEventLoop_ImageHandle()	{ return &loop_imagehandle_; }
 	WriteLog_EventLoop* 	getEventLoop_WriteLog()		{ return &loop_writelog_; }

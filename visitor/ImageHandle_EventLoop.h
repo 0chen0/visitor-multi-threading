@@ -1,7 +1,7 @@
 #ifndef RCCV_visitor_ImageHandle_EventLoop_H
 #define RCCV_visitor_ImageHandle_EventLoop_H
 
-#include "visitor/Visitor.h"
+#include "EventLoop.h"
 #include "message/Log_Message.hpp"
 #include "message/Flag_Message.hpp"
 #include <iostream>
@@ -10,7 +10,7 @@
 namespace rccv
 {
 
-class ImageHandle_EventLoop : public Visitor
+class ImageHandle_EventLoop : public EventLoop
 {
 public:
 	ImageHandle_EventLoop(){}

@@ -1,6 +1,7 @@
-#include "ImageRead_EventLoop.h"
-#include "message/Log_Message.hpp"
+// #include "ImageRead_EventLoop.h"
+// #include "message/Log_Message.hpp"
 #include "Engine.h"
+// #include "define.h"
 #include <iostream>
 #include <unistd.h>	//sleep
 
@@ -10,7 +11,7 @@ void ImageRead_EventLoop::run()
 {
 	while(true)
 	{
-		std::cout << "******** Appending Message... ********" << std::endl;
+		std::cout << "******** Appending Message... ********" << std::endl<<std::endl;
 		//*
 		std::unique_ptr<Message> b_append1 (new Log_Message(std::string("BB_ Append")));
 		std::unique_ptr<Message> b_append2 (new Log_Message(std::string("Message _BB")));
