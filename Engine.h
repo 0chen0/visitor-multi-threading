@@ -8,7 +8,7 @@
 namespace rccv
 {
 
-class Engine
+class Engine : noncopyable
 {
 private:
 	ImageHandle_EventLoop loop_imagehandle_;
@@ -17,9 +17,9 @@ private:
 
 public:
 	Engine();
-	~Engine(){}
+	~Engine();
+	void init();
 	void run();
-	void engineInit();
 
 	ImageHandle_EventLoop* 	getEventLoop_ImageHandle()	{ return &loop_imagehandle_; }
 	WriteLog_EventLoop* 	getEventLoop_WriteLog()		{ return &loop_writelog_; }

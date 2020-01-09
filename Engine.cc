@@ -14,11 +14,31 @@ Engine::Engine()
 	global_Engine = this;
 }
 
-void Engine::engineInit()
+Engine::~Engine()
+{
+	global_Engine = NULL;
+}
+
+void Engine::init()
 {
 	void addTestMsg();
 	addTestMsg();
 }
+
+void Engine::run()
+{
+	init();
+
+	std::thread thread_ImageHandle(&ImageHandle_EventLoop::loop, getEventLoop_ImageHandle());
+	std::thread thread_WriteLog(&WriteLog_EventLoop::loop, getEventLoop_WriteLog());
+	std::thread thread_ImageRead(&ImageRead_EventLoop::loop, getEventLoop_ImageRead());
+
+	thread_ImageHandle.join();
+	thread_WriteLog.join();
+	thread_ImageRead.join();
+
+}
+
 
 void addTestMsg()
 {
@@ -58,20 +78,6 @@ void addTestMsg()
 	std::unique_ptr<Message> b_isopen2 (new Open_Message(false));
 	getEngine()->getEventLoop_WriteLog()->submit(b_isopen1);
 	getEngine()->getEventLoop_WriteLog()->submit(b_isopen2);
-}
-
-void Engine::run()
-{
-	engineInit();
-
-	std::thread a_thread(&ImageHandle_EventLoop::loop, getEventLoop_ImageHandle());
-	std::thread b_thread(&WriteLog_EventLoop::loop, getEventLoop_WriteLog());
-	std::thread c_thread(&ImageRead_EventLoop::loop, getEventLoop_ImageRead());
-
-	a_thread.join();
-	b_thread.join();
-	c_thread.join();
-
 }
 
 } // namespace rccv
